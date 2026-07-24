@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EXPOTUNING NARIÑO – Car Audio & Eventos Extremos</title>
+  <link rel="icon" type="image/png" href="1780685639330.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ░░░ PANTALLA DE ENTRADA — el clic aquí activa el audio ░░░ -->
+  <div id="enter-screen">
+    <div class="enter-bg-fx"></div>
+    <div class="enter-content">
+      <img src="1780685639330.png" alt="Logo ExpoTuning Nariño" class="enter-logo" />
+      <h1 class="enter-title">EXPO<span class="eg">TUNING</span><br><span class="eb">NARIÑO</span></h1>
+      <p class="enter-sub">Car Audio · Tuning · Adrenalina · Espectáculo</p>
+      <button id="enter-btn">
+        <span class="enter-icon">🔊</span>
+        <span>ENTRAR CON SONIDO</span>
+      </button>
+      <p class="enter-hint">Activa el volumen de tu dispositivo</p>
+    </div>
+  </div>
+
+  <!-- ░░░ PRELOADER ░░░ -->
+  <div id="preloader">
+    <div class="preloader-inner">
+      <img src="1780685639330.png" alt="Logo ExpoTuning" class="preloader-logo" />
+      <div class="preloader-bar-wrap">
+        <div class="preloader-bar"></div>
+      </div>
+      <p class="preloader-text">CARGANDO EXPERIENCIA<span class="dots">...</span></p>
+    </div>
+  </div>
+
+  <!-- ░░░ NAVBAR ░░░ -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="#inicio" class="nav-logo">
+        <img src="1780685639330.png" alt="Logo" />
+        <span>EXPOTUNING <em>NARIÑO</em></span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#eventos">Eventos</a></li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#caraudio">Car Audio</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ░░░ HERO BANNER ░░░ -->
+  <!-- ░░░ BANNER — solo imagen, sin texto encima ░░░ -->
+  <!-- BARRA SUPERIOR REDES SOCIALES -->
+  <div class="social-bar social-bar-top">
+    <span class="social-bar-text">SÍGUENOS EN NUESTRAS REDES SOCIALES</span>
+    <div class="social-bar-icons">
+      <a href="https://www.facebook.com/share/1HbnVYDy9i/" target="_blank" rel="noopener" aria-label="Facebook" class="sbar-icon sbar-fb">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        <span>Facebook</span>
+      </a>
+      <a href="https://www.instagram.com/expotuningnarino2026?utm_source=qr&igsh=bGxpcXhjcjJpNHJ3" target="_blank" rel="noopener" aria-label="Instagram" class="sbar-icon sbar-ig">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor" stroke="none"/></svg>
+        <span>Instagram</span>
+      </a>
+      <a href="https://www.tiktok.com/@expotuning8?_r=1&_t=ZS-98HBvKt7j3k" target="_blank" rel="noopener" aria-label="TikTok" class="sbar-icon sbar-tt">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.24 8.24 0 0 0 4.83 1.56V6.78a4.85 4.85 0 0 1-1.06-.09z"/></svg>
+        <span>TikTok</span>
+      </a>
+    </div>
+  </div>
+
+  <section id="inicio" class="hero-banner">
+    <div class="hero-banner-shine"></div>
+    <canvas id="laser-canvas"></canvas>
+    <img src="BANNER INICIAL EXPO.jpg" alt="Banner ExpoTuning Nariño" class="hero-banner-img" />
+  </section>
+
+  <!-- ░░░ HERO CONTENT — debajo de la imagen ░░░ -->
+  <div class="hero-content">
+    <div class="hero-badge">🏆 EL EVENTO MÁS EXTREMO DEL SUR DE COLOMBIA</div>
+    <h1 class="hero-title">EXPO<span class="neon-green">TUNING</span><br /><span class="neon-blue">NARIÑO</span></h1>
+    <p class="hero-sub">Car Audio · Tuning · Motocross · BMX · Moto Stunt · Chicas Car Audio</p>
+    <div class="hero-btns">
+      <a href="#eventos" class="btn btn-primary">VER EVENTOS</a>
+      <a href="#contacto" class="btn btn-outline">CONTÁCTANOS</a>
+    </div>
+  </div>
+
+  <!-- ░░░ PRÓXIMO EVENTO — visible desde el inicio ░░░ -->
+  <section class="proximo-evento">
+    <div class="proximo-inner">
+      <div class="proximo-text">
+        <span class="section-tag">NO TE LO PIERDAS</span>
+        <h2>PRÓXIMA <span class="neon-green">EDICIÓN</span></h2>
+        <div class="proximo-sede-nombre">HIGUERONES – BUESACO</div>
+        <div class="proximo-fecha-badge">
+          <span>📅</span>
+          <span>DOMINGO 26 DE JULIO 2026</span>
+        </div>
+        <div class="proximo-hora-badge">
+          <span>🕙</span>
+          <span>10:00 AM · NARIÑO, COLOMBIA</span>
+        </div>
+        <p>El espectáculo más grande del sur de Colombia regresa con más adrenalina, más sonido y más emoción que nunca.</p>
+        <div class="countdown" id="countdown">
+          <div class="cd-item"><span id="cd-days">--</span><small>DÍAS</small></div>
+          <div class="cd-item"><span id="cd-hours">--</span><small>HORAS</small></div>
+          <div class="cd-item"><span id="cd-mins">--</span><small>MINUTOS</small></div>
+          <div class="cd-item"><span id="cd-secs">--</span><small>SEGUNDOS</small></div>
+        </div>
+      </div>
+      <div class="proximo-afiche">
+        <img src="IMAGENES/AFICHE BUESACO.jpg" alt="Afiche ExpoTuning Higuerones Buesaco 2026" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░░ CONTADOR / STATS ░░░ -->
+  <section class="stats">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <span class="stat-num neon-green" data-target="10">0</span>
+        <span class="stat-label">Ediciones Realizadas</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num neon-blue" data-target="5000">0</span>
+        <span class="stat-label">Asistentes por Evento</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num neon-green" data-target="200">0</span>
+        <span class="stat-label">Autos Participantes</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num neon-blue" data-target="8">0</span>
+        <span class="stat-label">Categorías de Eventos</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░░ EVENTOS ░░░ -->
+  <section id="eventos" class="section eventos">
+    <div class="section-header">
+      <span class="section-tag">LO QUE HACEMOS</span>
+      <h2>NUESTROS <span class="neon-green">EVENTOS</span></h2>
+      <p>Adrenalina, sonido y espectáculo en un solo lugar</p>
+    </div>
+
+    <!-- ░░░ EXPOTUNING NARIÑO 2026 — SEDES (PRIMERO) ░░░ -->
+    <div class="expo2026-wrap">
+
+      <!-- Botón principal -->
+      <button class="expo2026-main-btn" id="expo2026Btn">
+        <span class="expo2026-main-icon">🏆</span>
+        <span>EXPOTUNING NARIÑO 2026</span>
+        <span class="expo2026-arrow" id="expo2026Arrow">▼</span>
+      </button>
+
+      <!-- Panel de sedes -->
+      <div class="expo2026-panel" id="expo2026Panel">
+
+        <!-- SEDE: GUALMATÁN -->
+        <div class="sede-block">
+          <button class="sede-btn" data-sede="gualmatan">
+            <span class="sede-pin">📍</span>
+            <span>GUALMATÁN</span>
+            <span class="sede-arrow">▼</span>
+          </button>
+          <div class="sede-panel" id="panel-gualmatan">
+            <div class="sede-actions">
+              <button class="sede-action-btn green" data-modal="info-gualmatan"><span>ℹ️</span> INFORMACIÓN EVENTO</button>
+              <button class="sede-action-btn blue"  data-modal="galeria-gualmatan"><span>🖼️</span> GALERÍA</button>
+              <button class="sede-action-btn white" data-modal="puntuacion-gualmatan"><span>🏅</span> PUNTUACIÓN</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- SEDE: CONSACÁ -->
+        <div class="sede-block">
+          <button class="sede-btn" data-sede="consaca">
+            <span class="sede-pin">📍</span>
+            <span>CONSACÁ</span>
+            <span class="sede-arrow">▼</span>
+          </button>
+          <div class="sede-panel" id="panel-consaca">
+            <div class="sede-actions">
+              <button class="sede-action-btn green" data-modal="info-consaca"><span>ℹ️</span> INFORMACIÓN EVENTO</button>
+              <button class="sede-action-btn blue"  data-modal="galeria-consaca"><span>🖼️</span> GALERÍA</button>
+              <button class="sede-action-btn white" data-modal="puntuacion-consaca"><span>🏅</span> PUNTUACIÓN</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- SEDE: HIGUERONES - BUESACO -->
+        <div class="sede-block">
+          <button class="sede-btn" data-sede="higuerones">
+            <span class="sede-pin">📍</span>
+            <span>HIGUERONES – BUESACO</span>
+            <span class="sede-arrow">▼</span>
+          </button>
+          <div class="sede-panel" id="panel-higuerones">
+            <div class="sede-actions">
+              <button class="sede-action-btn green" data-modal="info-higuerones"><span>ℹ️</span> INFORMACIÓN EVENTO</button>
+              <button class="sede-action-btn blue"  data-modal="galeria-higuerones"><span>🖼️</span> GALERÍA</button>
+              <button class="sede-action-btn white" data-modal="puntuacion-higuerones"><span>🏅</span> PUNTUACIÓN</button>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /expo2026-panel -->
+    </div><!-- /expo2026-wrap -->
+
+    <!-- ░░░ BOTÓN CLASIFICACIÓN GENERAL ░░░ -->
+    <div class="expo2026-wrap resultados-wrap">
+      <button class="expo2026-main-btn resultados-main-btn" id="clasificacionBtn">
+        <span class="expo2026-main-icon">🏆</span>
+        <span>CLASIFICACIÓN GENERAL</span>
+        <span style="margin-left:auto;font-size:.9rem;">➤</span>
+      </button>
+    </div><!-- /resultados-wrap -->
+
+    <div class="eventos-grid">
+
+      <div class="evento-card" data-cat="caraudio">
+        <div class="evento-icon">🔊</div>
+        <div class="evento-glow"></div>
+        <h3>CAR AUDIO</h3>
+        <p>Competencias de sonido con los sistemas más potentes del país. Medición de SPL, SQ y más categorías.</p>
+        <span class="evento-tag green">Principal</span>
+      </div>
+
+      <div class="evento-card" data-cat="tuning">
+        <div class="evento-icon">🚗</div>
+        <div class="evento-glow"></div>
+        <h3>TUNING</h3>
+        <p>Exposición de autos modificados, vinilos, llantas y acabados de alta gama. Elige al mejor tuning.</p>
+        <span class="evento-tag blue">Exhibición</span>
+      </div>
+
+      <div class="evento-card" data-cat="motocross">
+        <div class="evento-icon">🏍️</div>
+        <div class="evento-glow"></div>
+        <h3>MOTOCROSS</h3>
+        <p>Pistas de tierra, saltos y barro. Los mejores pilotos de la región compiten por el título.</p>
+        <span class="evento-tag green">Extremo</span>
+      </div>
+
+      <div class="evento-card" data-cat="mxfreestyle">
+        <div class="evento-icon evento-icon-svg">
+          <!-- Moto de cross SVG -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 52" width="72" height="46" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <!-- Rueda trasera -->
+            <circle cx="14" cy="38" r="10" stroke="#00ff88" stroke-width="2.2"/>
+            <circle cx="14" cy="38" r="4" stroke="#00ff88" stroke-width="1.4"/>
+            <!-- Rueda delantera -->
+            <circle cx="64" cy="38" r="10" stroke="#00aaff" stroke-width="2.2"/>
+            <circle cx="64" cy="38" r="4" stroke="#00aaff" stroke-width="1.4"/>
+            <!-- Suspensión trasera -->
+            <line x1="14" y1="28" x2="26" y2="22" stroke="#00ff88" stroke-width="1.4"/>
+            <!-- Chasis principal -->
+            <line x1="14" y1="28" x2="28" y2="18" stroke="#00ff88" stroke-width="2.2"/>
+            <line x1="28" y1="18" x2="46" y2="18" stroke="#ffffff" stroke-width="2.2"/>
+            <line x1="46" y1="18" x2="64" y2="28" stroke="#00aaff" stroke-width="2.2"/>
+            <!-- Horquilla delantera -->
+            <line x1="55" y1="10" x2="64" y2="28" stroke="#00aaff" stroke-width="2"/>
+            <!-- Manubrio -->
+            <line x1="50" y1="8" x2="62" y2="8" stroke="#ffffff" stroke-width="2.4"/>
+            <line x1="55" y1="8" x2="55" y2="12" stroke="#ffffff" stroke-width="2"/>
+            <!-- Motor -->
+            <rect x="30" y="20" width="14" height="10" rx="2" stroke="#00ff88" stroke-width="1.6"/>
+            <!-- Asiento -->
+            <path d="M30 18 Q40 14 50 16" stroke="#ffffff" stroke-width="3" fill="none"/>
+            <!-- Piloto — cuerpo inclinado hacia adelante -->
+            <circle cx="44" cy="9" r="4" stroke="#00ff88" stroke-width="1.8"/>
+            <line x1="44" y1="13" x2="42" y2="18" stroke="#00ff88" stroke-width="2"/>
+            <line x1="38" y1="14" x2="48" y2="14" stroke="#00ff88" stroke-width="1.8"/>
+            <line x1="42" y1="18" x2="38" y2="22" stroke="#00ff88" stroke-width="1.6"/>
+            <line x1="42" y1="18" x2="46" y2="22" stroke="#00ff88" stroke-width="1.6"/>
+            <!-- Escape -->
+            <path d="M30 28 Q22 32 16 36" stroke="#ffaa00" stroke-width="1.8" fill="none"/>
+            <!-- Rayos ruedas -->
+            <line x1="14" y1="28" x2="14" y2="48" stroke="#00ff88" stroke-width="0.8" opacity="0.5"/>
+            <line x1="4"  y1="38" x2="24" y2="38" stroke="#00ff88" stroke-width="0.8" opacity="0.5"/>
+            <line x1="64" y1="28" x2="64" y2="48" stroke="#00aaff" stroke-width="0.8" opacity="0.5"/>
+            <line x1="54" y1="38" x2="74" y2="38" stroke="#00aaff" stroke-width="0.8" opacity="0.5"/>
+          </svg>
+        </div>
+        <div class="evento-glow"></div>
+        <h3>MX FREESTYLE</h3>
+        <p>Trucos imposibles en el aire, backflips y combos que desafían la gravedad sobre motos de cross.</p>
+        <span class="evento-tag blue">Freestyle</span>
+      </div>
+
+      <div class="evento-card" data-cat="bmx">
+        <div class="evento-icon">🚲</div>
+        <div class="evento-glow"></div>
+        <h3>BMX FREESTYLE</h3>
+        <p>Rampas, halfpipes y street. Los riders más talentosos muestran sus habilidades sobre dos ruedas.</p>
+        <span class="evento-tag green">Urban</span>
+      </div>
+
+      <div class="evento-card" data-cat="motostunt">
+        <div class="evento-icon">⚡</div>
+        <div class="evento-glow"></div>
+        <h3>MOTO STUNT</h3>
+        <p>Wheelies, stoppies y maniobras acrobáticas que dejan sin aliento. Espectáculo puro sobre asfalto.</p>
+        <span class="evento-tag blue">Acrobático</span>
+      </div>
+
+      <div class="evento-card" data-cat="motovelocidad">
+        <div class="evento-icon">🏁</div>
+        <div class="evento-glow"></div>
+        <h3>MOTOVELOCIDAD</h3>
+        <p>Carreras de velocidad en pista con motos de calle y sport. Velocidad, técnica y emoción al límite.</p>
+        <span class="evento-tag green">Racing</span>
+      </div>
+
+      <div class="evento-card" data-cat="chicas">
+        <div class="evento-icon evento-icon-svg">
+          <!-- Silueta chica car audio SVG -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 72" width="38" height="56" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <!-- Cabeza -->
+            <circle cx="24" cy="9" r="7" fill="rgba(0,170,255,0.15)" stroke="#00aaff" stroke-width="1.8"/>
+            <!-- Cabello largo -->
+            <path d="M17 9 Q14 18 16 26" stroke="#00aaff" stroke-width="1.6" fill="none"/>
+            <path d="M31 9 Q34 18 32 26" stroke="#00aaff" stroke-width="1.6" fill="none"/>
+            <path d="M17 6 Q24 2 31 6" stroke="#00aaff" stroke-width="1.8" fill="none"/>
+            <!-- Cuello -->
+            <line x1="24" y1="16" x2="24" y2="20" stroke="#00aaff" stroke-width="1.8"/>
+            <!-- Cuerpo / torso femenino -->
+            <path d="M14 20 Q10 28 12 36 L18 36 L18 32 L30 32 L30 36 L36 36 Q38 28 34 20 Q29 17 24 17 Q19 17 14 20Z" fill="rgba(0,255,136,0.12)" stroke="#00ff88" stroke-width="1.8"/>
+            <!-- Cintura marcada -->
+            <path d="M15 30 Q24 27 33 30" stroke="#00ff88" stroke-width="1.2" fill="none"/>
+            <!-- Brazos -->
+            <path d="M14 22 Q8 26 10 34" stroke="#00aaff" stroke-width="1.8" fill="none"/>
+            <path d="M34 22 Q40 26 38 34" stroke="#00aaff" stroke-width="1.8" fill="none"/>
+            <!-- Mano izquierda con micrófono/auricular -->
+            <circle cx="10" cy="34" r="2.5" stroke="#00ff88" stroke-width="1.4"/>
+            <line x1="10" y1="36" x2="10" y2="41" stroke="#00ff88" stroke-width="1.4"/>
+            <circle cx="10" cy="42" r="2" fill="rgba(0,255,136,0.3)" stroke="#00ff88" stroke-width="1.2"/>
+            <!-- Mano derecha -->
+            <ellipse cx="38" cy="34" rx="2.5" ry="2" stroke="#00aaff" stroke-width="1.4"/>
+            <!-- Falda / caderas -->
+            <path d="M12 36 Q14 46 18 50 L30 50 Q34 46 36 36Z" fill="rgba(0,170,255,0.12)" stroke="#00aaff" stroke-width="1.8"/>
+            <!-- Piernas -->
+            <line x1="19" y1="50" x2="17" y2="65" stroke="#00aaff" stroke-width="2"/>
+            <line x1="29" y1="50" x2="31" y2="65" stroke="#00aaff" stroke-width="2"/>
+            <!-- Zapatos de tacón -->
+            <path d="M14 65 Q17 67 20 65 L17 65Z" stroke="#00ff88" stroke-width="1.6" fill="rgba(0,255,136,0.2)"/>
+            <line x1="17" y1="65" x2="17" y2="70" stroke="#00ff88" stroke-width="1.4"/>
+            <path d="M28 65 Q31 67 34 65 L31 65Z" stroke="#00ff88" stroke-width="1.6" fill="rgba(0,255,136,0.2)"/>
+            <line x1="31" y1="65" x2="31" y2="70" stroke="#00ff88" stroke-width="1.4"/>
+            <!-- Corona / estrella arriba -->
+            <path d="M20 3 L22 0 L24 3 L26 0 L28 3" stroke="#ffcc00" stroke-width="1.4" fill="none"/>
+          </svg>
+        </div>
+        <div class="evento-glow"></div>
+        <h3>CHICAS CAR AUDIO</h3>
+        <p>Las reinas del tuning. Concurso de modelos que representan la cultura car audio con estilo y actitud.</p>
+        <span class="evento-tag blue">Show</span>
+      </div>
+
+      <div class="evento-card" data-cat="fiestas">
+        <div class="evento-icon">🎉</div>
+        <div class="evento-glow"></div>
+        <h3>FIESTAS TEMÁTICAS</h3>
+        <p>Después del día de competencia, la noche explota con fiestas temáticas, DJs y ambiente de tuning.</p>
+        <span class="evento-tag green">Nocturno</span>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ░░░ MODALES ░░░ -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-box" id="modalBox">
+      <button class="modal-close" id="modalClose">✕</button>
+      <div class="modal-content" id="modalContent"></div>
+    </div>
+  </div>
+
+  <!-- ░░░ CAR AUDIO HIGHLIGHT ░░░ -->
+  <section id="caraudio" class="section caraudio-section">
+    <div class="caraudio-inner">
+      <div class="caraudio-text">
+        <span class="section-tag">PROTAGONISTA DEL EVENTO</span>
+        <h2>CAR <span class="neon-green">AUDIO</span></h2>
+        <p>El car audio es el corazón de ExpoTuning Nariño. Sistemas de miles de vatios, subwoofers que mueven el aire y competencias técnicas que ponen a prueba la ingeniería del sonido.</p>
+        <ul class="caraudio-list">
+          <li><span class="neon-green">▶</span> Categoría SPL – Presión de sonido máxima</li>
+          <li><span class="neon-green">▶</span> Categoría SQ – Calidad de sonido</li>
+          <li><span class="neon-green">▶</span> Categoría SQL – Balance SPL + Calidad</li>
+          <li><span class="neon-green">▶</span> Street – Autos de exhibición</li>
+          <li><span class="neon-green">▶</span> Show Car – Instalaciones de lujo</li>
+        </ul>
+        <a href="#contacto" class="btn btn-primary">PARTICIPAR</a>
+      </div>
+      <div class="caraudio-visual">
+        <div class="eq-bars">
+          <div class="eq-bar" style="--h:40%"></div>
+          <div class="eq-bar" style="--h:70%"></div>
+          <div class="eq-bar" style="--h:55%"></div>
+          <div class="eq-bar" style="--h:90%"></div>
+          <div class="eq-bar" style="--h:65%"></div>
+          <div class="eq-bar" style="--h:80%"></div>
+          <div class="eq-bar" style="--h:50%"></div>
+          <div class="eq-bar" style="--h:95%"></div>
+          <div class="eq-bar" style="--h:75%"></div>
+          <div class="eq-bar" style="--h:60%"></div>
+          <div class="eq-bar" style="--h:85%"></div>
+          <div class="eq-bar" style="--h:45%"></div>
+        </div>
+        <div class="bass-circle">
+          <img src="1780685639330.png" alt="Logo" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░░ GALERÍA ░░░ -->
+  <section id="galeria" class="section galeria-section">
+    <div class="section-header">
+      <span class="section-tag">MOMENTOS</span>
+      <h2>GALERÍA <span class="neon-blue">EXPOTUNING</span></h2>
+      <p>Revive la emoción de nuestras ediciones anteriores</p>
+    </div>
+    <div class="galeria-grid">
+      <div class="galeria-item g-wide">
+        <img src="BANNER INICIAL EXPO.jpg" alt="ExpoTuning Banner" />
+        <div class="galeria-overlay"><span>ExpoTuning Nariño</span></div>
+      </div>
+      <div class="galeria-item">
+        <div class="galeria-placeholder" style="--c1:#00ff88;--c2:#0033ff;">
+          <span class="galeria-icon">🔊</span>
+          <p>Car Audio Show</p>
+        </div>
+        <div class="galeria-overlay"><span>Car Audio</span></div>
+      </div>
+      <div class="galeria-item">
+        <div class="galeria-placeholder" style="--c1:#00aaff;--c2:#006600;">
+          <span class="galeria-icon">🏍️</span>
+          <p>Motocross Nariño</p>
+        </div>
+        <div class="galeria-overlay"><span>Motocross</span></div>
+      </div>
+      <div class="galeria-item">
+        <div class="galeria-placeholder" style="--c1:#00ff88;--c2:#003399;">
+          <span class="galeria-icon">🚗</span>
+          <p>Tuning & Style</p>
+        </div>
+        <div class="galeria-overlay"><span>Tuning</span></div>
+      </div>
+      <div class="galeria-item">
+        <div class="galeria-placeholder" style="--c1:#0066ff;--c2:#004400;">
+          <span class="galeria-icon">👑</span>
+          <p>Chicas Car Audio</p>
+        </div>
+        <div class="galeria-overlay"><span>Chicas Car Audio</span></div>
+      </div>
+      <div class="galeria-item">
+        <div class="galeria-placeholder" style="--c1:#00ff66;--c2:#0000cc;">
+          <span class="galeria-icon">⚡</span>
+          <p>Moto Stunt</p>
+        </div>
+        <div class="galeria-overlay"><span>Moto Stunt</span></div>
+      </div>
+      <div class="galeria-item">
+        <div class="galeria-placeholder" style="--c1:#33ccff;--c2:#00aa44;">
+          <span class="galeria-icon">🚲</span>
+          <p>BMX Freestyle</p>
+        </div>
+        <div class="galeria-overlay"><span>BMX Freestyle</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░░ CONTACTO ░░░ -->
+  <section id="contacto" class="section contacto-section">
+    <div class="section-header">
+      <span class="section-tag">HABLEMOS</span>
+      <h2>CONTACTO <span class="neon-blue">&amp; PARTICIPACIÓN</span></h2>
+      <p>¿Quieres participar, patrocinar o asistir? Escríbenos.</p>
+    </div>
+    <div class="contacto-grid">
+      <div class="contacto-info">
+        <div class="info-item">
+          <span class="info-icon">📍</span>
+          <div>
+            <strong>Ubicación</strong>
+            <p>Nariño, Colombia</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <span class="info-icon">📱</span>
+          <div>
+            <strong>WhatsApp</strong>
+            <p><a href="https://wa.me/573122603799" target="_blank">+57 312 260 3799</a></p>
+          </div>
+        </div>
+        <div class="info-item">
+          <span class="info-icon">📧</span>
+          <div>
+            <strong>Email</strong>
+            <p><a href="mailto:expotuningnarino2026@gmail.com">expotuningnarino2026@gmail.com</a></p>
+          </div>
+        </div>
+        <div class="info-item">
+          <span class="info-icon">📸</span>
+          <div>
+            <strong>Instagram</strong>
+            <p><a href="#" target="_blank">@expotuningnarino</a></p>
+          </div>
+        </div>
+        <div class="social-btns">
+          <a href="https://www.facebook.com/share/1HbnVYDy9i/" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/expotuningnarino2026?utm_source=qr&igsh=bGxpcXhjcjJpNHJ3" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@expotuning8?_r=1&_t=ZS-98HBvKt7j3k" target="_blank" rel="noopener" class="social-btn" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.24 8.24 0 0 0 4.83 1.56V6.78a4.85 4.85 0 0 1-1.06-.09z"/></svg>
+          </a>
+          <a href="#" class="social-btn" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.97C18.88 4 12 4 12 4s-6.88 0-8.59.45A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.97C5.12 20 12 20 12 20s6.88 0 8.59-.45a2.78 2.78 0 0 0 1.95-1.97A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#000"/></svg>
+          </a>
+        </div>
+      </div>
+      <form class="contacto-form" id="contactForm" novalidate>
+        <div class="form-group">
+          <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+          <label for="nombre">Nombre</label>
+        </div>
+        <div class="form-group">
+          <input type="tel" id="telefono" name="telefono" placeholder="Tu teléfono / WhatsApp" />
+          <label for="telefono">Teléfono</label>
+        </div>
+        <div class="form-group">
+          <input type="email" id="email" name="email" placeholder="Tu correo electrónico" required />
+          <label for="email">Email</label>
+        </div>
+        <div class="form-group">
+          <select id="interes" name="interes">
+            <option value="">¿En qué estás interesado?</option>
+            <option>Participar en Car Audio</option>
+            <option>Participar en Tuning</option>
+            <option>Participar en Motocross / MX</option>
+            <option>Participar en BMX</option>
+            <option>Moto Stunt / Motovelocidad</option>
+            <option>Chicas Car Audio</option>
+            <option>Patrocinio</option>
+            <option>Prensa / Medios</option>
+            <option>Información general</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <textarea id="mensaje" name="mensaje" placeholder="Tu mensaje..." rows="4"></textarea>
+          <label for="mensaje">Mensaje</label>
+        </div>
+        <button type="submit" class="btn btn-primary full-width">ENVIAR MENSAJE ➤</button>
+        <p class="form-note" id="formMsg"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ░░░ FOOTER ░░░ -->
+  <!-- BARRA INFERIOR REDES SOCIALES -->
+  <div class="social-bar social-bar-bottom">
+    <span class="social-bar-text">SÍGUENOS EN NUESTRAS REDES SOCIALES</span>
+    <div class="social-bar-icons">
+      <a href="https://www.facebook.com/share/1HbnVYDy9i/" target="_blank" rel="noopener" aria-label="Facebook" class="sbar-icon sbar-fb">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        <span>Facebook</span>
+      </a>
+      <a href="https://www.instagram.com/expotuningnarino2026?utm_source=qr&igsh=bGxpcXhjcjJpNHJ3" target="_blank" rel="noopener" aria-label="Instagram" class="sbar-icon sbar-ig">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor" stroke="none"/></svg>
+        <span>Instagram</span>
+      </a>
+      <a href="https://www.tiktok.com/@expotuning8?_r=1&_t=ZS-98HBvKt7j3k" target="_blank" rel="noopener" aria-label="TikTok" class="sbar-icon sbar-tt">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.24 8.24 0 0 0 4.83 1.56V6.78a4.85 4.85 0 0 1-1.06-.09z"/></svg>
+        <span>TikTok</span>
+      </a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="1780685639330.png" alt="Logo ExpoTuning Nariño" />
+        <div>
+          <h3>EXPOTUNING <span class="neon-green">NARIÑO</span></h3>
+          <p>El evento más extremo del sur de Colombia.<br />Car Audio · Tuning · Adrenalina · Espectáculo</p>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4 class="neon-blue">EVENTOS</h4>
+        <ul>
+          <li><a href="#eventos">Car Audio</a></li>
+          <li><a href="#eventos">Motocross / MX</a></li>
+          <li><a href="#eventos">BMX Freestyle</a></li>
+          <li><a href="#eventos">Moto Stunt</a></li>
+          <li><a href="#eventos">Chicas Car Audio</a></li>
+          <li><a href="#eventos">Fiestas Temáticas</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4 class="neon-green">NAVEGACIÓN</h4>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#caraudio">Car Audio</a></li>
+          <li><a href="#galeria">Galería</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 ExpoTuning Nariño – Todos los derechos reservados</p>
+      <p class="neon-green">🔊 El sonido que mueve a Nariño</p>
+    </div>
+  </footer>
+
+  <!-- Reproductor de música -->
+  <div id="music-player">
+    <span class="music-label">🎵 ELECTRONIC MIX</span>
+    <button class="music-btn" id="musicBtn" aria-label="Reproducir música">▶</button>
+  </div>
+
+  <!-- Back to top -->
+  <button class="back-top" id="backTop" aria-label="Volver arriba">▲</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
