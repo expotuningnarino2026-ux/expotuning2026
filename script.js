@@ -510,10 +510,11 @@ const MODAL_DATA = {
     placeholder: '📅 FECHA · HORA · LUGAR — PRÓXIMAMENTE'
   },
   'galeria-gualmatan': {
-    titulo: 'GALERÍA',
+    titulo: '🖼️ GALERÍA — GUALMATÁN',
     sede:   '📍 GUALMATÁN · EXPOTUNING NARIÑO 2026',
-    cuerpo: `<p>Las fotos y videos del evento en Gualmatán estarán disponibles antes y después de la fecha.</p>`,
-    placeholder: '🖼️ GALERÍA — PRÓXIMAMENTE'
+    cuerpo: `<div id="galeria-gual-wrap"></div>`,
+    placeholder: '',
+    onOpen: 'galeria-gualmatan'
   },
   'puntuacion-gualmatan': {
     titulo: '🏅 PUNTUACIÓN — GUALMATÁN',
@@ -582,6 +583,11 @@ document.querySelectorAll('.sede-action-btn[data-modal]').forEach(btn => {
     `;
     overlay.classList.add('open');
     document.body.style.overflow = 'hidden';
+
+    // Ejecutar función especial si el modal la tiene
+    if (data.onOpen === 'galeria-gualmatan') {
+      renderGaleriaGualmatan();
+    }
   });
 });
 
@@ -992,3 +998,159 @@ Object.assign(MODAL_DATA, {
   document.head.appendChild(style);
 
 })();
+
+/* ============================================
+   GALERÍA GUALMATÁN — 133 fotos con paginación
+   ============================================ */
+/* ============================================
+   GALERÍA GUALMATÁN — fotos de GUALMATAN + GUAL 2
+   ============================================ */
+const FOTOS_GUALMATAN = [
+  // --- Carpeta GUALMATAN (79 fotos) ---
+  'GUALMATAN/1784895132769.jpg','GUALMATAN/1784895132786.jpg','GUALMATAN/1784895132802.jpg',
+  'GUALMATAN/1784895132818.jpg','GUALMATAN/1784895132835.jpg','GUALMATAN/1784895132851.jpg',
+  'GUALMATAN/1784895132867.jpg','GUALMATAN/1784895132884.jpg','GUALMATAN/1784895132901.jpg',
+  'GUALMATAN/1784895132918.jpg','GUALMATAN/1784895132935.jpg','GUALMATAN/1784895132952.jpg',
+  'GUALMATAN/1784895132971.jpg','GUALMATAN/1784895132996.jpg','GUALMATAN/1784895133022.jpg',
+  'GUALMATAN/1784895133042.jpg','GUALMATAN/1784895133060.jpg','GUALMATAN/1784895133079.jpg',
+  'GUALMATAN/1784895133098.jpg','GUALMATAN/1784895133119.jpg','GUALMATAN/1784895133137.jpg',
+  'GUALMATAN/1784895133154.jpg','GUALMATAN/1784895133171.jpg','GUALMATAN/1784895133188.jpg',
+  'GUALMATAN/1784895133206.jpg','GUALMATAN/1784895133224.jpg','GUALMATAN/1784895133241.jpg',
+  'GUALMATAN/1784895133258.jpg','GUALMATAN/1784895133275.jpg','GUALMATAN/1784895133293.jpg',
+  'GUALMATAN/1784895133310.jpg','GUALMATAN/1784895133326.jpg','GUALMATAN/1784895133343.jpg',
+  'GUALMATAN/1784895133360.jpg','GUALMATAN/1784895133378.jpg','GUALMATAN/1784895133395.jpg',
+  'GUALMATAN/1784895133412.jpg','GUALMATAN/1784895133429.jpg','GUALMATAN/1784895133446.jpg',
+  'GUALMATAN/1784895133463.jpg','GUALMATAN/1784895133480.jpg','GUALMATAN/1784895133497.jpg',
+  'GUALMATAN/1784895133514.jpg','GUALMATAN/1784895133531.jpg','GUALMATAN/1784895133548.jpg',
+  'GUALMATAN/1784895133565.jpg','GUALMATAN/1784895133582.jpg','GUALMATAN/1784895133599.jpg',
+  'GUALMATAN/1784895133618.jpg','GUALMATAN/1784895133636.jpg','GUALMATAN/1784895133653.jpg',
+  'GUALMATAN/1784895133671.jpg','GUALMATAN/1784895133688.jpg','GUALMATAN/1784895133706.jpg',
+  'GUALMATAN/1784895133723.jpg','GUALMATAN/1784895133739.jpg','GUALMATAN/1784895133756.jpg',
+  'GUALMATAN/1784895133774.jpg','GUALMATAN/1784895133793.jpg','GUALMATAN/1784895133810.jpg',
+  'GUALMATAN/1784895133828.jpg','GUALMATAN/1784895133846.jpg','GUALMATAN/1784895133864.jpg',
+  'GUALMATAN/1784895133881.jpg','GUALMATAN/1784895133902.jpg','GUALMATAN/1784895133920.jpg',
+  'GUALMATAN/1784895133937.jpg','GUALMATAN/1784895133956.jpg','GUALMATAN/1784895133972.jpg',
+  'GUALMATAN/1784895133989.jpg','GUALMATAN/1784895134005.jpg','GUALMATAN/1784895134021.jpg',
+  'GUALMATAN/1784895134038.jpg','GUALMATAN/1784895134054.jpg','GUALMATAN/1784895134072.jpg',
+  'GUALMATAN/1784895134089.jpg','GUALMATAN/1784895134106.jpg','GUALMATAN/1784895134123.jpg',
+  'GUALMATAN/1784895134139.jpg','GUALMATAN/1784895134156.jpg',
+  // --- Carpeta GUAL 2 (55 fotos) ---
+  'GUAL 2/1784895134173.jpg','GUAL 2/1784895134191.jpg','GUAL 2/1784895134208.jpg',
+  'GUAL 2/1784895134225.jpg','GUAL 2/1784895134243.jpg','GUAL 2/1784895134260.jpg',
+  'GUAL 2/1784895134277.jpg','GUAL 2/1784895134294.jpg','GUAL 2/1784895134310.jpg',
+  'GUAL 2/1784895134327.jpg','GUAL 2/1784895134343.jpg','GUAL 2/1784895134360.jpg',
+  'GUAL 2/1784895134377.jpg','GUAL 2/1784895134393.jpg','GUAL 2/1784895134410.jpg',
+  'GUAL 2/1784895134427.jpg','GUAL 2/1784895134443.jpg','GUAL 2/1784895134460.jpg',
+  'GUAL 2/1784895134477.jpg','GUAL 2/1784895134494.jpg','GUAL 2/1784895134510.jpg',
+  'GUAL 2/1784895134527.jpg','GUAL 2/1784895134543.jpg','GUAL 2/1784895134560.jpg',
+  'GUAL 2/1784895134577.jpg','GUAL 2/1784895134593.jpg','GUAL 2/1784895134610.jpg',
+  'GUAL 2/1784895134626.jpg','GUAL 2/1784895134643.jpg','GUAL 2/1784895134660.jpg',
+  'GUAL 2/1784895134676.jpg','GUAL 2/1784895134693.jpg','GUAL 2/1784895134709.jpg',
+  'GUAL 2/1784895134726.jpg','GUAL 2/1784895134742.jpg','GUAL 2/1784895134759.jpg',
+  'GUAL 2/1784895134775.jpg','GUAL 2/1784895134792.jpg','GUAL 2/1784895134809.jpg',
+  'GUAL 2/1784895134825.jpg','GUAL 2/1784895134842.jpg','GUAL 2/1784895134858.jpg',
+  'GUAL 2/1784895134875.jpg','GUAL 2/1784895134891.jpg','GUAL 2/1784895134908.jpg',
+  'GUAL 2/1784895134924.jpg','GUAL 2/1784895134942.jpg','GUAL 2/1784895134959.jpg',
+  'GUAL 2/1784895134975.jpg','GUAL 2/1784895134992.jpg','GUAL 2/1784895135008.jpg',
+  'GUAL 2/1784895135025.jpg','GUAL 2/1784895135041.jpg','GUAL 2/1784895135058.jpg'
+];
+
+const POR_PAGINA = 20;
+let paginaGual = 0;
+
+function renderGaleriaGualmatan() {
+  const wrap = document.getElementById('galeria-gual-wrap');
+  if (!wrap) return;
+
+  const total  = FOTOS_GUALMATAN.length;
+  const inicio = paginaGual * POR_PAGINA;
+  const fin    = Math.min(inicio + POR_PAGINA, total);
+  const fotos  = FOTOS_GUALMATAN.slice(inicio, fin);
+  const totalPags = Math.ceil(total / POR_PAGINA);
+
+  // Construir grid de miniaturas
+  const items = fotos.map((src, i) => `
+    <div class="gual-thumb" data-idx="${inicio + i}">
+      <img src="${src}" alt="Foto Gualmatán ${inicio + i + 1}" loading="lazy" />
+      <div class="gual-thumb-overlay">🔍</div>
+    </div>
+  `).join('');
+
+  // Paginación
+  const pags = Array.from({length: totalPags}, (_, p) => `
+    <button class="gual-pag-btn ${p === paginaGual ? 'active' : ''}" data-pag="${p}">${p + 1}</button>
+  `).join('');
+
+  wrap.innerHTML = `
+    <div class="gual-info">📷 ${total} fotografías · Página ${paginaGual + 1} de ${totalPags} · GUALMATAN + GUAL 2</div>
+    <div class="gual-grid">${items}</div>
+    <div class="gual-paginacion">${pags}</div>
+  `;
+
+  // Scroll al top del modal al cambiar página
+  const box = document.getElementById('modalBox');
+  if (box) box.scrollTop = 0;
+
+  // Clic en miniatura → lightbox con todas las fotos de la galería
+  wrap.querySelectorAll('.gual-thumb').forEach(thumb => {
+    thumb.addEventListener('click', () => {
+      const idx = parseInt(thumb.dataset.idx);
+      // Crear objetos img temporales para el lightbox
+      const imgs = FOTOS_GUALMATAN.map(s => ({ src: s, alt: 'Foto Gualmatán' }));
+      openLightboxDirect(FOTOS_GUALMATAN[idx], 'Foto Gualmatán', imgs, idx);
+    });
+  });
+
+  // Paginación
+  wrap.querySelectorAll('.gual-pag-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      paginaGual = parseInt(btn.dataset.pag);
+      renderGaleriaGualmatan();
+    });
+  });
+}
+
+// Función auxiliar para abrir el lightbox con un array de objetos {src, alt}
+function openLightboxDirect(src, alt, imgs, idx) {
+  const lbImg     = document.getElementById('lb-img');
+  const lbCaption = document.getElementById('lb-caption');
+  const lb        = document.getElementById('lightbox');
+  if (!lb || !lbImg) return;
+
+  // Guardar la galería en el lightbox para navegación
+  lb._gallery = imgs;
+  lb._current = idx;
+
+  lbImg.src = src;
+  lbImg.alt = alt;
+  lbCaption.textContent = `Gualmatán · Foto ${idx + 1} de ${imgs.length}`;
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+
+  // Sobrescribir navegación del lightbox para esta galería
+  const prev = lb.querySelector('.lb-prev');
+  const next = lb.querySelector('.lb-next');
+  prev.style.display = imgs.length > 1 ? 'flex' : 'none';
+  next.style.display = imgs.length > 1 ? 'flex' : 'none';
+
+  // Reemplazar handlers
+  prev.onclick = () => navLightboxDirect(-1);
+  next.onclick = () => navLightboxDirect(1);
+}
+
+function navLightboxDirect(dir) {
+  const lb    = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lb-img');
+  const lbCap = document.getElementById('lb-caption');
+  if (!lb || !lb._gallery) return;
+
+  lb._current = (lb._current + dir + lb._gallery.length) % lb._gallery.length;
+  const item = lb._gallery[lb._current];
+  lbImg.style.opacity = '0';
+  setTimeout(() => {
+    lbImg.src = item.src;
+    lbImg.alt = item.alt;
+    lbCap.textContent = `Gualmatán · Foto ${lb._current + 1} de ${lb._gallery.length}`;
+    lbImg.style.opacity = '1';
+  }, 120);
+}
